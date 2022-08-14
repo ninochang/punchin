@@ -1,0 +1,11 @@
+name: 'Punch in and out'
+inputs:
+  mode:
+    description: 'in/out'
+    required: true
+    default: 'in'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.mode }}
