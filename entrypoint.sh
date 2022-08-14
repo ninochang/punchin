@@ -1,4 +1,5 @@
 #!/bin/sh -l
 
-sh -c 'python /utils.py --mode=$1'
+echo "mode: $1"
+sh -c "python /utils.py --mode=$1"
 
