@@ -6,11 +6,6 @@ on:
     - cron: '* 10 * * *'
     - cron: '* 19 * * *'
 
-
-permissions:
-  contents: read
-  issues: write
-
 jobs:
   attendence:
     name: do_punch
@@ -21,17 +16,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: debug
-        uses: ./
-        with:
-          mode: out
-      # - name: Punch in
-      #   if: github.event.schedule != '* 10 * * *'
-      #   uses: ./
-      #   with:
-      #     mode: in
-      # - name: Punch out
-      #   if: github.event.schedule != '* 19 * * *'
+      # - name: debug
       #   uses: ./
       #   with:
       #     mode: out
+      - name: Punch in
+        if: github.event.schedule != '* 10 * * *'
+        uses: ./
+        with:
+          mode: in
+      - name: Punch out
+        if: github.event.schedule != '* 19 * * *'
+        uses: ./
+        with:
+          mode: out
