@@ -6,6 +6,6 @@ COPY        requirements.txt /requirements.txt
 COPY        utils.py /utils.py
 COPY        entrypoint.sh /entrypoint.sh
 
-RUN         pip install -m requirements.txt
+RUN         pip install -r requirements.txt
 
 ENTRYPOINT  ["/entrypoint.sh"]
