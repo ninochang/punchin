@@ -1,9 +1,9 @@
 name: Punch in
 
 on:
-  workflow_dispatch:
-  push:
-  schedule:
+  - workflow_dispatch:
+  - push:
+  - schedule:
     - cron: '* 10 * * *'
     - cron: '* 19 * * *'
 
