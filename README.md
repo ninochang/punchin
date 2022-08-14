@@ -9,8 +9,8 @@ name: Punch in
 
 on:
   schedule:
-    - cron: '* 18 * * *'
-    - cron: '* 3 * * *'
+    - cron: '* 2 * * *'
+    - cron: '* 11 * * *'
 
 jobs:
   attendence:
@@ -23,12 +23,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Punch in
-        if: github.event.schedule != '* 18 * * *'
+        if: github.event.schedule != '* 2 * * *'
         uses: ninoswaglive/punchin@v1
         with:
           mode: in
       - name: Punch out
-        if: github.event.schedule != '* 3 * * *'
+        if: github.event.schedule != '* 11 * * *'
         uses: ninoswaglive/punchin@v1
         with:
           mode: out

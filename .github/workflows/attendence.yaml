@@ -2,8 +2,8 @@ name: Punch in
 
 on:
   schedule:
-    - cron: '* 18 * * *'
-    - cron: '* 3 * * *'
+    - cron: '* 2 * * *'
+    - cron: '* 11 * * *'
 
 jobs:
   attendence:
@@ -20,12 +20,12 @@ jobs:
       #   with:
       #     mode: out
       - name: Punch in
-        if: github.event.schedule != '* 18 * * *'
+        if: github.event.schedule != '* 2 * * *'
         uses: ./
         with:
           mode: in
       - name: Punch out
-        if: github.event.schedule != '* 3 * * *'
+        if: github.event.schedule != '* 11 * * *'
         uses: ./
         with:
           mode: out
