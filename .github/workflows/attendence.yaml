@@ -24,7 +24,7 @@ jobs:
       - name: debug
         uses: ./
         with:
-          mode: in
+          mode: out
       # - name: Punch in
       #   if: github.event.schedule != '* 10 * * *'
       #   uses: ./
