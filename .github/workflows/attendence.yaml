@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: '0 2 * * 1-5'
     - cron: '0 11 * * 1-5'
-    - cron: '0 6 * * 1-5'
 
 jobs:
   attendence:
@@ -21,12 +20,12 @@ jobs:
       #   with:
       #     mode: out
       - name: Punch in
-        if: github.event.schedule != '0 2 * * 1-5'
+        if: github.event.schedule == '0 2 * * 1-5'
         uses: ./
         with:
           mode: in
       - name: Punch out
-        if: github.event.schedule != '0 11 * * 1-5' || github.event.schedule != '0 6 * * 1-5'
+        if: github.event.schedule == '0 11 * * 1-5'
         uses: ./
         with:
           mode: out
