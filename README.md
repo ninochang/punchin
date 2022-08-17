@@ -2,7 +2,8 @@
 1. set your repo secret
     - ACCOUNT
     - PASSWORD
-2. Add action like below.
+2. Add action like below, put in .github/workflows/punch.yaml .
+
 
 ```yaml
 name: Punch in
