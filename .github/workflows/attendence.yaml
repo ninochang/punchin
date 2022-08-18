@@ -2,7 +2,7 @@ name: Punch in
 
 on:
   schedule:
-    - cron: '0 2 * * 1-5'
+    - cron: '0 0 * * 1-5'
     - cron: '0 11 * * 1-5'
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       #   with:
       #     mode: out
       - name: Punch in
-        if: github.event.schedule == '0 2 * * 1-5'
+        if: github.event.schedule == '0 0 * * 1-5'
         uses: ./
         with:
           mode: in
