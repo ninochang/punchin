@@ -55,7 +55,7 @@ def get_user_id(session: requests.Session):
 
 
 def punch_in():
-    print('punch_it')
+    print('punch in')
     session = initialize()
     uid = get_user_id(session)
     session.post(
@@ -74,7 +74,7 @@ def punch_in():
 
 
 def punch_out():
-    print('punch_out')
+    print('punch out')
     session = initialize()
     uid = get_user_id(session)
     session.post(
