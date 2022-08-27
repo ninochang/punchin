@@ -2,6 +2,7 @@ import requests
 import click
 import os
 import sys
+import re
 
 
 ACCOUNT = os.environ['ACCOUNT']
@@ -42,16 +43,28 @@ def initialize():
     return session
 
 
+def get_user_id(session: requests.Session):
+    PATTERN = re.compile(r'value=\"(?P<user_id>\w+)\" id=\"AttRecordUserId\"')
+    response = session.get(
+        'https://femascloud.com/swag/users/main?from=/Accounts/login?ext=html',
+    )
+
+    return next(
+        PATTERN.finditer(response.text)
+    )['user_id']
+
+
 def punch_in():
     print('punch_it')
     session = initialize()
+    uid = get_user_id(session)
     session.post(
         'https://femascloud.com/swag/users/clock_listing',
         headers=headers,
             data={
             '_method': 'POST',
-            'data[ClockRecord][user_id]': '22',
-            'data[AttRecord][user_id]': '22',
+            'data[ClockRecord][user_id]': uid,
+            'data[AttRecord][user_id]': uid,
             'data[ClockRecord][shift_id]': '2',
             'data[ClockRecord][period]': '1',
             'data[ClockRecord][clock_type]': 'S',
@@ -63,13 +76,14 @@ def punch_in():
 def punch_out():
     print('punch_out')
     session = initialize()
+    uid = get_user_id(session)
     session.post(
         'https://femascloud.com/swag/users/clock_listing',
         headers=headers,
             data={
             '_method': 'POST',
-            'data[ClockRecord][user_id]': '22',
-            'data[AttRecord][user_id]': '22',
+            'data[ClockRecord][user_id]': uid,
+            'data[AttRecord][user_id]': uid,
             'data[ClockRecord][shift_id]': '2',
             'data[ClockRecord][period]': '1',
             'data[ClockRecord][clock_type]': 'E',
