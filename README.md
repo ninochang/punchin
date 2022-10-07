@@ -25,12 +25,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Punch in
         if: github.event.schedule == '0 0 * * 1-5'
-        uses: ninoswaglive/punchin@v1
+        uses: ninochang/punchin@v1
         with:
           mode: in
       - name: Punch out
         if: github.event.schedule == '0 11 * * 1-5'
-        uses: ninoswaglive/punchin@v1
+        uses: ninochang/punchin@v1
         with:
           mode: out
 
