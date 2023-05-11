@@ -1,4 +1,4 @@
-name: Punch in
+name: Build
 
 on:
   push:
