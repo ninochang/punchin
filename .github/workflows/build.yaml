@@ -12,7 +12,7 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     env:
-    PLATROEMS: linux/amd64,linux/arm64
+      PLATROEMS: linux/amd64,linux/arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v3
