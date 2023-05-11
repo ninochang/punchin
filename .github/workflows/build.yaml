@@ -49,9 +49,9 @@ jobs:
         uses: docker/metadata-action@v4.4.0
         with:
           images: |
-            ghcr.io/${{ github.repository }}
             a901002666/${{ github.repository }}
           tags: |
+            type=sha,priority=1000
             type=raw,value=latest
 
       - name: Build
