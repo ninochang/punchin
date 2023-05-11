@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 0 * * 1-5'
     - cron: '0 11 * * 1-5'
+  push:
+    branches:
+    - feature/3-2
 
 jobs:
   attendence:
@@ -15,17 +18,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # - name: debug
+      - name: debug
+        uses:  docker://a901002666/punchin
+        with:
+          mode: out
+      # - name: Punch in
+      #   if: github.event.schedule == '0 0 * * 1-5'
+      #   uses: ./
+      #   with:
+      #     mode: in
+      # - name: Punch out
+      #   if: github.event.schedule == '0 11 * * 1-5'
       #   uses: ./
       #   with:
       #     mode: out
-      - name: Punch in
-        if: github.event.schedule == '0 0 * * 1-5'
-        uses: ./
-        with:
-          mode: in
-      - name: Punch out
-        if: github.event.schedule == '0 11 * * 1-5'
-        uses: ./
-        with:
-          mode: out
