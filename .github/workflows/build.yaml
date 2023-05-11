@@ -52,7 +52,7 @@ jobs:
             ghcr.io/${{ github.repository }}
             a901002666/${{ github.repository }}
           tags: |
-            type=sha,priority=1000
+            type=raw,value=latest
 
       - name: Build
         uses: docker/build-push-action@v4.0.0
