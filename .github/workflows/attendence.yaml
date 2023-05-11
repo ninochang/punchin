@@ -18,17 +18,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: debug
-        uses:  docker://a901002666/punchin
+      # - name: debug
+      #   uses:  docker://a901002666/punchin
+      #   with:
+      #     args: out
+      - name: Punch in
+        if: github.event.schedule == '0 0 * * 1-5'
+        uses: docker://a901002666/punchin
+        with:
+          args: in
+      - name: Punch out
+        if: github.event.schedule == '0 11 * * 1-5'
+        uses: docker://a901002666/punchin
         with:
           args: out
-      # - name: Punch in
-      #   if: github.event.schedule == '0 0 * * 1-5'
-      #   uses: ./
-      #   with:
-      #     mode: in
-      # - name: Punch out
-      #   if: github.event.schedule == '0 11 * * 1-5'
-      #   uses: ./
-      #   with:
-      #     mode: out
