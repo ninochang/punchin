@@ -51,7 +51,6 @@ jobs:
           images: |
             a901002666/${{ github.repository }}
           tags: |
-            type=sha,priority=1000
             type=raw,value=latest
 
       - name: Build
