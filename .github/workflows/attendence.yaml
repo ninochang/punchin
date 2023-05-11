@@ -21,7 +21,7 @@ jobs:
       - name: debug
         uses:  docker://a901002666/punchin
         with:
-          mode: out
+          args: out
       # - name: Punch in
       #   if: github.event.schedule == '0 0 * * 1-5'
       #   uses: ./
