@@ -16,16 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       # - name: debug
-      #   uses: ./
+      #   uses:  docker://a901002666/punchin
       #   with:
-      #     mode: out
+      #     args: out
       - name: Punch in
         if: github.event.schedule == '0 0 * * 1-5'
-        uses: ./
+        uses: docker://a901002666/punchin
         with:
-          mode: in
+          args: in
       - name: Punch out
         if: github.event.schedule == '0 11 * * 1-5'
-        uses: ./
+        uses: docker://a901002666/punchin
         with:
-          mode: out
+          args: out
