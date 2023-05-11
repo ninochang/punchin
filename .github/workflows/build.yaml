@@ -11,8 +11,13 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+      
     env:
       PLATROEMS: linux/amd64,linux/arm64
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
