@@ -49,7 +49,7 @@ jobs:
         uses: docker/metadata-action@v4.4.0
         with:
           images: |
-            a901002666/${{ github.repository }}
+            a901002666/punchin
           tags: |
             type=raw,value=latest
 
