@@ -50,7 +50,7 @@ jobs:
         with:
           images: |
             ${{ secrets.DOCKER_USERNAME }}/punchin
-            ghcr.io/{{ github.repository }}
+            ghcr.io/${{ github.repository }}
           tags: |
             type=sha,priority=100
             type=raw,value=latest
