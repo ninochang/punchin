@@ -1,3 +1,7 @@
+# Punchin
+
+Automated punchin/punchout on [femascloud](https://femascloud.com/)
+
 # Dev locally
 ## Steps
 
